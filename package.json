@@ -5,9 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "vercel-build": "prisma generate && next build",
+    "vercel-build": "prisma generate --schema=./prisma/schema.prisma && next build",
     "start": "next start",
     "lint": "eslint"
+  },
+  "prisma": {
+    "schema": "./prisma/schema.prisma"
   },
   "engines": {
     "node": ">=20"
