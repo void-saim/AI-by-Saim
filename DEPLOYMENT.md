@@ -74,6 +74,33 @@ Start Command: npm run start
 
 Add the same environment variables in Render.
 
+## Netlify
+
+Netlify supports Next.js through its OpenNext adapter. Use Git deploy, not drag-and-drop, because this app has API routes, Prisma, login, chat history, and server-side AI calls.
+
+1. Push this project to GitHub.
+2. In Netlify, choose **Add new site** -> **Import an existing project**.
+3. Select your GitHub repository.
+4. If this project is inside a subfolder, set **Base directory** to the folder containing `package.json`, `app/`, and `pages/`.
+5. Netlify will use `netlify.toml`:
+
+```bash
+npm run vercel-build
+```
+
+6. Add the same environment variables:
+
+```env
+DATABASE_URL="mysql://USER:PASSWORD@HOST:PORT/DATABASE"
+GOOGLE_GENERATIVE_AI_API_KEY="your-google-generative-ai-api-key"
+GOOGLE_GENERATIVE_AI_MODEL="gemini-flash-latest"
+NEXT_PUBLIC_BASE_PATH=""
+```
+
+If Netlify requires a value for `NEXT_PUBLIC_BASE_PATH`, do not add that variable at all.
+
+7. Deploy the site.
+
 ## Important
 
 - Do not commit `.env`; it contains secrets.
